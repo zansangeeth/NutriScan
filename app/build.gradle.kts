@@ -57,4 +57,10 @@ dependencies {
     androidTestImplementation(libs.androidx.compose.ui.test.junit4)
     debugImplementation(libs.androidx.compose.ui.tooling)
     debugImplementation(libs.androidx.compose.ui.test.manifest)
+
+    // lottifies animations
+    implementation(libs.android.lottie.compose)
+
+    // Google Fonts
+    implementation(libs.androidx.compose.ui.text.google.fonts)
 }

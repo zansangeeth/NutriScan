@@ -5,17 +5,22 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
+import androidx.compose.foundation.layout.size
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.text.font.Font
+import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.sangeeth.nutriscan.ui.theme.ComposeLoadingAnimationsTheme
-import com.sangeeth.nutriscan.ui.theme.NutriScanTheme
+
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,19 +28,30 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             ComposeLoadingAnimationsTheme {
-                Scaffold(
+                Surface(
                     modifier = Modifier.fillMaxSize(),
-                    containerColor = Color.Black
-                ) { innerPadding ->
+                    color = MaterialTheme.colorScheme.background
+                ) {
                     Box(
-                        modifier = Modifier
-                            .fillMaxSize()
-                            .padding(innerPadding),
-                        contentAlignment = Alignment.BottomCenter
-                    ) {
+                        contentAlignment = Alignment.Center
+                    ){
                         BlurredAnimatedText(
-                            text = "NutriScan"
+                            modifier = Modifier
+                                .size(200.dp)
+                                .align(Alignment.Center)
                         )
+                        Column (
+                            horizontalAlignment = Alignment.CenterHorizontally
+                        ){
+                            Text(
+                                text = "NutriScan",
+                                color = Color.White,
+                                fontSize = 30.sp,
+                                fontFamily = FontFamily(Font(R.font.jetbrainsmono_bold)),
+                                modifier = Modifier
+                                    .padding(top = 250.dp)
+                            )
+                        }
                     }
                 }
             }
